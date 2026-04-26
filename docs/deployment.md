@@ -10,6 +10,7 @@
 - Primary domain: `nvlink.lol`
 - Argo platform repo: `gateszhangc/argo-platform`
 - Dokploy project: `n/a`，本项目按要求不使用 Dokploy
+- Preview URL: `https://nvlink.144.91.77.245.sslip.io/`
 
 发布链路：
 
@@ -45,6 +46,24 @@
    - `kubectl apply -f deploy/argocd/application.yaml`
 4. 将域名 `nvlink.lol` 托管到 Cloudflare，并将 apex / www 指向集群入口。
 5. 站点可访问后，将 `sc-domain:nvlink.lol` 接入 Google Search Console，并提交 `https://nvlink.lol/sitemap.xml`。
+
+## 2026-04-26 当前状态
+
+- GitHub Actions `Build And Release` 已成功跑通，集群内 Kaniko 构建和 `newTag` 回写正常。
+- Argo CD Application `nvlink` 当前为 `Synced` + `Healthy`。
+- `nvlink` 工作负载 pod 已 ready。
+- Cloudflare zone `nvlink.lol` 已创建，当前 nameserver 为：
+  - `jaziel.ns.cloudflare.com`
+  - `sandra.ns.cloudflare.com`
+- Cloudflare zone 中已写入以下 DNS-only A 记录：
+  - `nvlink.lol -> 144.91.73.228`
+  - `nvlink.lol -> 144.91.77.245`
+  - `nvlink.lol -> 144.91.78.201`
+  - `www.nvlink.lol -> 144.91.73.228`
+  - `www.nvlink.lol -> 144.91.77.245`
+  - `www.nvlink.lol -> 144.91.78.201`
+- 当前阻塞点：Porkbun 账户未开启 domain API access，脚本无法自动把注册商 nameserver 从 Porkbun 切到 Cloudflare。
+- 在 Porkbun 面板把 nameserver 手动切到上面的两个 Cloudflare NS 后，主域名证书签发、GSC 验证和最终线上验收即可继续。
 
 ## 验收标准
 

@@ -53,4 +53,30 @@ spec:
                 name: nvlink-web
                 port:
                   number: 80
-
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nvlink-preview
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/issue-temporary-certificate: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - nvlink.144.91.77.245.sslip.io
+      secretName: nvlink-preview-tls
+  rules:
+    - host: nvlink.144.91.77.245.sslip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nvlink-web
+                port:
+                  number: 80
