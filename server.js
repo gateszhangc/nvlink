@@ -65,9 +65,17 @@ const serveFile = (requestPath, response) => {
 const server = http.createServer((request, response) => {
   const url = new URL(request.url || "/", `http://${request.headers.host || "localhost"}`);
   let pathname = decodeURIComponent(url.pathname);
+  const forwardedProto = request.headers["x-forwarded-proto"];
+  const hostHeader = request.headers.host || "";
+  const isAcmeChallenge = pathname.startsWith("/.well-known/acme-challenge/");
 
   if (pathname === "/healthz") {
     send(response, 200, { "Content-Type": "application/json; charset=utf-8" }, JSON.stringify({ ok: true }));
+    return;
+  }
+
+  if (forwardedProto === "http" && !isAcmeChallenge) {
+    send(response, 308, { Location: `https://${hostHeader}${url.pathname}${url.search}` }, "");
     return;
   }
 
@@ -81,4 +89,3 @@ const server = http.createServer((request, response) => {
 server.listen(port, host, () => {
   console.log(`Static site listening on http://${host}:${port}`);
 });
-
