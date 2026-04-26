@@ -15,5 +15,5 @@ labels:
 images:
   - name: nvlink
     newName: registry.144.91.77.245.sslip.io/nvlink
-    newTag: ef52d69927710401ac672b7a2c8f05ec876dcf00
+    newTag: 4c43bdd9d7de2c34d818d7d7e3d1bdb14c3c614d
 
