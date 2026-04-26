@@ -3,78 +3,54 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Artemis II Wallpaper | HD NASA Moon Mission Backgrounds</title>
+    <title>NVLink Explained | Bandwidth, NVSwitch, PCIe, Blackwell and Rubin</title>
     <meta
       name="description"
-      content="Download Artemis II wallpaper picks for desktop and phone using publicly released NASA mission imagery, crew posters, launch photography, and lunar flyby graphics."
+      content="NVLink explained with source-backed bandwidth figures, NVSwitch context, NVLink vs PCIe tradeoffs, and the latest official NVIDIA generation timeline through Rubin."
     />
     <meta
       name="keywords"
-      content="artemis ii wallpaper, artemis 2 wallpaper, nasa artemis ii wallpaper, artemis ii desktop background, artemis ii phone wallpaper"
+      content="nvlink, what is nvlink, nvlink vs pcie, nvswitch, nvlink bandwidth, blackwell nvlink, rubin nvlink"
     />
-    <meta name="theme-color" content="#050912" />
+    <meta name="theme-color" content="#f4f0e8" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <link rel="canonical" href="https://artemis-2-wallpaper.lol/" />
-    <link rel="icon" type="image/png" sizes="256x256" href="assets/brand/favicon.png" />
+    <link rel="canonical" href="https://nvlink.lol/" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/brand/favicon.png" />
     <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Artemis II Wallpaper" />
+    <meta property="og:title" content="NVLink Explained" />
     <meta
       property="og:description"
-      content="Independent editorial collection of Artemis II wallpapers built from publicly released NASA imagery."
+      content="A clear, source-backed guide to NVIDIA NVLink, NVSwitch, PCIe tradeoffs, and the current generation roadmap."
     />
-    <meta property="og:url" content="https://artemis-2-wallpaper.lol/" />
-    <meta property="og:image" content="https://artemis-2-wallpaper.lol/assets/brand/social-card.png" />
-    <meta property="og:image:alt" content="Artemis II Wallpaper editorial collection cover graphic" />
+    <meta property="og:url" content="https://nvlink.lol/" />
+    <meta property="og:image" content="https://nvlink.lol/assets/brand/social-card.png" />
+    <meta property="og:image:alt" content="NVLink Explained editorial cover graphic" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Artemis II Wallpaper" />
+    <meta name="twitter:title" content="NVLink Explained" />
     <meta
       name="twitter:description"
-      content="HD NASA moon mission backgrounds for desktop and phone, curated in a non-official editorial archive."
+      content="Bandwidth figures, NVSwitch context, and practical guidance for understanding where NVLink matters."
     />
-    <meta name="twitter:image" content="https://artemis-2-wallpaper.lol/assets/brand/social-card.png" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZTPSV8BNB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-0ZTPSV8BNB");
-    </script>
-    <script>
-      (function (c, l, a, r, i, t, y) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "wbzojj5vc4");
-    </script>
-    <link rel="preload" href="assets/fonts/Tektur-Medium.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="preload" href="assets/fonts/InstrumentSans-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <meta name="twitter:image" content="https://nvlink.lol/assets/brand/social-card.png" />
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "Artemis II Wallpaper",
-        "url": "https://artemis-2-wallpaper.lol/",
-        "description": "Independent editorial collection of Artemis II wallpapers using publicly released NASA imagery with source credit.",
-        "isPartOf": {
-          "@type": "WebSite",
-          "name": "Artemis II Wallpaper",
-          "url": "https://artemis-2-wallpaper.lol/"
-        },
+        "@type": "TechArticle",
+        "headline": "NVLink Explained",
+        "description": "A source-backed explainer of NVIDIA NVLink, NVSwitch, NVLink-C2C, PCIe comparisons, and current generation bandwidth figures.",
+        "url": "https://nvlink.lol/",
+        "dateModified": "2026-04-26",
+        "datePublished": "2026-04-26",
         "about": {
           "@type": "Thing",
-          "name": "NASA Artemis II"
+          "name": "NVIDIA NVLink"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "NVLink Explained"
         }
       }
     </script>
@@ -85,34 +61,42 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is Artemis II?",
+            "name": "What is NVLink?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Artemis II is NASA's first crewed Artemis mission. NASA launched the mission on April 1, 2026 for an approximately 10-day lunar flyby test mission with Reid Wiseman, Victor Glover, Christina Koch, and Jeremy Hansen."
+              "text": "NVLink is NVIDIA's high-speed interconnect for GPU and CPU processors in accelerated systems. It is designed to move data far faster than conventional PCIe links in scale-up systems."
             }
           },
           {
             "@type": "Question",
-            "name": "Is this an official NASA wallpaper site?",
+            "name": "What does NVSwitch do?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. This site is an independent editorial collection that organizes publicly released NASA Artemis II imagery with attribution and links back to NASA source pages."
+              "text": "NVSwitch extends NVLink beyond direct neighbor links. It creates an all-to-all fabric so many GPUs can communicate at full NVLink speed inside a larger server or rack-scale system."
             }
           },
           {
             "@type": "Question",
-            "name": "Where do the wallpapers come from?",
+            "name": "How is NVLink different from PCIe?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Every wallpaper on this page comes from the NASA image archive or official NASA mission graphics. Each card links back to its original NASA source."
+              "text": "PCIe is the general-purpose host interconnect found in standard servers, while NVLink is a purpose-built scale-up fabric for high-bandwidth GPU communication. NVIDIA's official blog says fourth-generation NVLink reached 900 GB/s and exceeded PCIe Gen 5 bandwidth by more than 7x."
             }
           },
           {
             "@type": "Question",
-            "name": "Can I use these backgrounds on desktop and phone?",
+            "name": "What is the latest official NVLink generation?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. The collection mixes desktop, ultrawide, and portrait-oriented picks. Each wallpaper card includes a format label and downloadable file."
+              "text": "As of April 26, 2026, NVIDIA's official NVLink page describes sixth-generation NVLink for the Rubin platform at 3.6 TB/s of bandwidth per GPU."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you always need NVLink for multi-GPU work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. NVLink matters most when workloads spend significant time moving activations, parameters, or collective communication between GPUs. Many smaller inference or lightly coupled jobs can run well over PCIe."
             }
           }
         ]
@@ -120,473 +104,384 @@
     </script>
   </head>
   <body>
-    <a class="skip-link" href="#gallery">Skip to wallpapers</a>
+    <a class="skip-link" href="#overview">Skip to content</a>
+    <div class="page-grid" aria-hidden="true"></div>
     <div class="site-frame">
       <header class="topbar" data-topbar>
-        <a class="brand" href="#top" aria-label="Artemis II Wallpaper home">
-          <img src="assets/brand/logo-wordmark.png" alt="Orbital Signal Artemis II Wallpaper Archive" width="1500" height="480" />
+        <a class="brand" href="#top" aria-label="NVLink Explained home">
+          <img src="assets/brand/logo-wordmark.png" alt="NVLink Explained" width="1400" height="360" />
         </a>
         <nav class="nav" aria-label="Primary">
-          <a href="#featured">Featured</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#faq">FAQ</a>
-          <a href="#credits">Credits</a>
+          <a href="#overview" data-nav-link>Overview</a>
+          <a href="#timeline" data-nav-link>Timeline</a>
+          <a href="#workloads" data-nav-link>Use Cases</a>
+          <a href="#faq" data-nav-link>FAQ</a>
+          <a href="#sources" data-nav-link>Sources</a>
         </nav>
       </header>
 
       <main id="top">
         <section class="hero section">
           <div class="hero-copy">
-            <p class="eyebrow">Independent Editorial Collection</p>
-            <h1>Artemis II Wallpaper</h1>
+            <p class="eyebrow">Source-backed explainer</p>
+            <h1>NVLink, explained for multi-GPU systems.</h1>
             <p class="hero-dek">
-              HD NASA moon mission backgrounds for desktop and phone, curated from publicly released Artemis II launch photography, flight imagery, recovery photos, and official mission poster art.
+              NVLink is NVIDIA's scale-up interconnect for moving data between GPUs and CPUs at much higher bandwidth than ordinary
+              server PCIe paths. If you are reading product briefs full of NVSwitch, NVL72, and GPU bandwidth claims, this page is
+              the fast way to make sense of them.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#gallery">Explore the Collection</a>
-              <a class="button button-secondary" href="#credits">View NASA Sources</a>
+              <a class="button button-primary" href="#timeline">See the generation curve</a>
+              <a class="button button-secondary" href="#sources">Open the primary sources</a>
             </div>
-            <div class="signal-note">
-              <span class="signal-dot" aria-hidden="true"></span>
-              Not an official NASA website. Imagery is shown in a factual, credited, non-endorsed editorial context.
+            <div class="trust-strip">
+              <span>Last reviewed <time datetime="2026-04-26">April 26, 2026</time></span>
+              <span>Official NVIDIA pages only for specs</span>
             </div>
-            <dl class="stats-grid">
-              <div class="stat-card">
-                <dt>Launch</dt>
-                <dd>April 1, 2026</dd>
+            <dl class="hero-facts">
+              <div class="fact-card">
+                <dt>Current top line</dt>
+                <dd>3.6 TB/s per GPU</dd>
               </div>
-              <div class="stat-card">
-                <dt>Flight</dt>
-                <dd>10-day lunar flyby</dd>
+              <div class="fact-card">
+                <dt>Rack example</dt>
+                <dd>72 GPUs in NVL72</dd>
               </div>
-              <div class="stat-card">
-                <dt>Crew</dt>
-                <dd>Wiseman, Glover, Koch, Hansen</dd>
-              </div>
-              <div class="stat-card">
-                <dt>Return</dt>
-                <dd>Pacific splashdown on April 10, 2026</dd>
+              <div class="fact-card">
+                <dt>Why it matters</dt>
+                <dd>Collectives and model parallelism</dd>
               </div>
             </dl>
           </div>
 
-          <div class="hero-visual">
-            <div class="hero-image-card">
-              <div class="hero-card-meta">
-                <p class="eyebrow">Hero Pick</p>
-                <p class="hero-card-title">Moon Seen behind Full Artemis II Stack at Launch Pad 39B</p>
-              </div>
-              <img
-                src="assets/images/wallpapers/moonrise-stack-full.webp"
-                alt="Moon behind the Artemis II stack at Launch Pad 39B."
-                width="1800"
-                height="1200"
-                fetchpriority="high"
-              />
-              <div class="hero-card-footer">
-                <span>1800 x 1200</span>
-                <span>NASA/Sam Lott</span>
-              </div>
+          <div class="hero-visual card">
+            <div class="visual-meta">
+              <p class="eyebrow">Fabric sketch</p>
+              <h2>Direct links inside a bigger switch fabric</h2>
+              <p>Think of NVLink as the lane, and NVSwitch as the exchange that keeps every lane reachable at scale.</p>
             </div>
+            <svg class="fabric-svg" viewBox="0 0 760 520" role="img" aria-label="Diagram showing GPUs connected through an NVSwitch fabric">
+              <defs>
+                <linearGradient id="lane" x1="0%" x2="100%" y1="0%" y2="0%">
+                  <stop offset="0%" stop-color="#6fb04f" />
+                  <stop offset="100%" stop-color="#af6a31" />
+                </linearGradient>
+              </defs>
+              <rect x="230" y="160" width="300" height="200" rx="28" fill="#18201a" stroke="#3b4c3d" stroke-width="2" />
+              <text x="380" y="210" text-anchor="middle" class="svg-label svg-title">NVSwitch Fabric</text>
+              <text x="380" y="242" text-anchor="middle" class="svg-label">All-to-all paths for scale-up traffic</text>
+              <g>
+                <rect x="58" y="82" width="122" height="84" rx="22" class="svg-gpu" />
+                <rect x="58" y="222" width="122" height="84" rx="22" class="svg-gpu" />
+                <rect x="58" y="362" width="122" height="84" rx="22" class="svg-gpu" />
+                <rect x="580" y="82" width="122" height="84" rx="22" class="svg-gpu" />
+                <rect x="580" y="222" width="122" height="84" rx="22" class="svg-gpu" />
+                <rect x="580" y="362" width="122" height="84" rx="22" class="svg-gpu" />
+              </g>
+              <g class="svg-label">
+                <text x="119" y="131" text-anchor="middle">GPU 0</text>
+                <text x="119" y="271" text-anchor="middle">GPU 1</text>
+                <text x="119" y="411" text-anchor="middle">GPU 2</text>
+                <text x="641" y="131" text-anchor="middle">GPU 3</text>
+                <text x="641" y="271" text-anchor="middle">GPU 4</text>
+                <text x="641" y="411" text-anchor="middle">GPU 5</text>
+              </g>
+              <g stroke="url(#lane)" stroke-width="10" stroke-linecap="round">
+                <line x1="180" y1="124" x2="230" y2="208" />
+                <line x1="180" y1="264" x2="230" y2="264" />
+                <line x1="180" y1="404" x2="230" y2="312" />
+                <line x1="530" y1="208" x2="580" y2="124" />
+                <line x1="530" y1="264" x2="580" y2="264" />
+                <line x1="530" y1="312" x2="580" y2="404" />
+              </g>
+              <g fill="#6fb04f">
+                <circle cx="230" cy="208" r="7" />
+                <circle cx="230" cy="264" r="7" />
+                <circle cx="230" cy="312" r="7" />
+                <circle cx="530" cy="208" r="7" />
+                <circle cx="530" cy="264" r="7" />
+                <circle cx="530" cy="312" r="7" />
+              </g>
+            </svg>
           </div>
         </section>
 
-        <section class="featured section" id="featured">
+        <section class="section" id="overview">
           <div class="section-heading">
-            <p class="eyebrow">Featured Downloads</p>
-            <h2>Two fast picks for the first screen you want to change.</h2>
+            <p class="eyebrow">Overview</p>
+            <h2>Three ideas cover most of the NVLink conversation.</h2>
             <p>
-              The collection opens with one lunar-launch composition for widescreen desktops and one vertical liftoff frame built for lock screens.
+              Most confusion comes from mixing up direct GPU links, rack-scale switching, and chip-to-chip variants. The product names
+              change by generation, but the logic stays consistent.
             </p>
           </div>
-
-          <div class="featured-grid">
-            <article class="feature-card">
-              <div class="feature-copy">
-                <div class="card-tags">
-                  <span>Desktop</span>
-                  <span>Moonrise</span>
-                </div>
-                <h3>Moonrise Stack</h3>
-                <p>A restrained launch pad image with moonlight, negative space, and strong desktop cropping room.</p>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/moonrise-stack-full.webp" download="artemis-ii-moonrise-stack.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-Artemis%20II%20at%20the%20pad%20Moon%2001292026_4" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-              <div class="card-media landscape">
-                <img
-                  src="assets/images/wallpapers/thumbs/moonrise-stack-thumb.webp"
-                  alt="Moon seen behind the SLS and Orion stack at the pad."
-                  width="960"
-                  height="640"
-                />
-              </div>
-            </article>
-
-            <article class="feature-card feature-card-portrait">
-              <div class="feature-copy">
-                <div class="card-tags">
-                  <span>Phone</span>
-                  <span>Launch Day</span>
-                </div>
-                <h3>Liftoff Plume</h3>
-                <p>The cleanest portrait-oriented launch shot in the set, with flame, smoke, and a strong silhouette.</p>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/liftoff-plume-full.webp" download="artemis-ii-liftoff-plume.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-SLS_MAF_20260401_ArtemisIILaunch_06" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-              <div class="card-media portrait">
-                <img
-                  src="assets/images/wallpapers/thumbs/liftoff-plume-thumb.webp"
-                  alt="Artemis II liftoff on April 1, 2026."
-                  width="800"
-                  height="1200"
-                />
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="gallery section" id="gallery">
-          <div class="section-heading">
-            <p class="eyebrow">Curated Grid</p>
-            <h2>Wallpaper-ready NASA Artemis II imagery, posters, and mission graphics.</h2>
-            <p>
-              Filter by mission phase to move from launch prep to lunar flight, recovery, and poster art. Every download is hosted locally for fast browsing and linked back to NASA.
-            </p>
-          </div>
-
-          <div class="gallery-toolbar">
-            <div class="filters" role="toolbar" aria-label="Wallpaper filters">
-              <button class="filter-button is-active" type="button" data-filter="all">All</button>
-              <button class="filter-button" type="button" data-filter="launch">Launch</button>
-              <button class="filter-button" type="button" data-filter="flight">In Flight</button>
-              <button class="filter-button" type="button" data-filter="return">Return</button>
-              <button class="filter-button" type="button" data-filter="poster">Posters</button>
-            </div>
-            <p class="results-count" data-results-count>Showing 10 wallpapers</p>
-          </div>
-
-          <div class="wallpaper-grid">
-            <article class="wallpaper-card" data-tags="launch">
-              <div class="card-media landscape">
-                <img src="assets/images/wallpapers/thumbs/moonrise-stack-thumb.webp" alt="Moon behind the Artemis II launch stack." width="960" height="640" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Desktop</span>
-                  <span>Moonrise</span>
-                </div>
-                <h3>Moon Seen behind Full Artemis II Stack at Launch Pad 39B</h3>
-                <p>A moonlit pad shot that frames SLS and Orion as a single monumental silhouette.</p>
-                <div class="card-meta">
-                  <span>1800 x 1200</span>
-                  <span>NASA/Sam Lott</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/moonrise-stack-full.webp" download="artemis-ii-moonrise-stack.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-Artemis%20II%20at%20the%20pad%20Moon%2001292026_4" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="wallpaper-card" data-tags="launch">
-              <div class="card-media ultrawide">
-                <img src="assets/images/wallpapers/thumbs/sunset-anamorphic-thumb.webp" alt="Sunset behind the Artemis II stack at the launch pad." width="960" height="356" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Ultrawide</span>
-                  <span>Launch Prep</span>
-                </div>
-                <h3>Sun sets on Full Artemis II Stack at Launch Pad 39B Anamorphic</h3>
-                <p>An anamorphic sunset composition built for wide monitors and cinematic crops.</p>
-                <div class="card-meta">
-                  <span>1800 x 668</span>
-                  <span>NASA/Sam Lott</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/sunset-anamorphic-full.webp" download="artemis-ii-sunset-anamorphic.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-Artemis%20II%20at%20the%20pad%20anamorphic%2001282026" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="wallpaper-card" data-tags="launch">
-              <div class="card-media portrait">
-                <img src="assets/images/wallpapers/thumbs/liftoff-plume-thumb.webp" alt="Artemis II launch rising through plume and smoke." width="800" height="1200" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Phone</span>
-                  <span>Launch Day</span>
-                </div>
-                <h3>Artemis II Launch</h3>
-                <p>A vertical launch frame with dense flame texture and a clean silhouette of ascent.</p>
-                <div class="card-meta">
-                  <span>1200 x 1800</span>
-                  <span>NASA/Michael DeMocker</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/liftoff-plume-full.webp" download="artemis-ii-liftoff-plume.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-SLS_MAF_20260401_ArtemisIILaunch_06" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="wallpaper-card" data-tags="flight">
-              <div class="card-media landscape">
-                <img src="assets/images/wallpapers/thumbs/looking-back-earth-thumb.webp" alt="Artemis II looking back at Earth from space." width="960" height="640" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Desktop</span>
-                  <span>In Flight</span>
-                </div>
-                <h3>Artemis II Looking Back at Earth</h3>
-                <p>A quiet deep-space view that turns Earth into a luminous waypoint behind the mission.</p>
-                <div class="card-meta">
-                  <span>1800 x 1200</span>
-                  <span>NASA</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/looking-back-earth-full.webp" download="artemis-ii-looking-back-earth.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-art002e000191" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="wallpaper-card" data-tags="flight">
-              <div class="card-media landscape">
-                <img src="assets/images/wallpapers/thumbs/earth-perspective-thumb.webp" alt="Earth from the perspective of Artemis II." width="960" height="640" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Desktop</span>
-                  <span>In Flight</span>
-                </div>
-                <h3>Earth From the Perspective of Artemis II</h3>
-                <p>A clean orbital perspective image suited to minimalist lock screens and dark desktops.</p>
-                <div class="card-meta">
-                  <span>1800 x 1200</span>
-                  <span>NASA</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/earth-perspective-full.webp" download="artemis-ii-earth-perspective.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-art002e000192" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="wallpaper-card" data-tags="return">
-              <div class="card-media portrait">
-                <img src="assets/images/wallpapers/thumbs/crew-recovery-thumb.webp" alt="Artemis II crew recovery after splashdown." width="813" height="960" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Phone</span>
-                  <span>Crew</span>
-                </div>
-                <h3>Artemis II Crew Recovery</h3>
-                <p>A vertical recovery scene that captures the human side of the mission after splashdown.</p>
-                <div class="card-meta">
-                  <span>1525 x 1800</span>
-                  <span>NASA/James Blair</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/crew-recovery-full.webp" download="artemis-ii-crew-recovery.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-JB5_0746" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="wallpaper-card" data-tags="return">
-              <div class="card-media portrait">
-                <img src="assets/images/wallpapers/thumbs/splashdown-capsule-thumb.webp" alt="Orion descending under parachutes before Artemis II splashdown." width="720" height="960" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Phone</span>
-                  <span>Return</span>
-                </div>
-                <h3>Artemis II Splashdown</h3>
-                <p>Orion under parachutes moments before Pacific splashdown on April 10, 2026.</p>
-                <div class="card-meta">
-                  <span>1350 x 1800</span>
-                  <span>NASA/Josh Valcarcel</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/splashdown-capsule-full.webp" download="artemis-ii-splashdown.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-KSC-20260410-PH-JNV01_0001" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="wallpaper-card" data-tags="flight">
-              <div class="card-media landscape">
-                <img src="assets/images/wallpapers/thumbs/ascent-graphic-thumb.webp" alt="Artemis II ascent mission trajectory graphic." width="960" height="654" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Desktop</span>
-                  <span>Mission Data</span>
-                </div>
-                <h3>Artemis II Ascent Graphic</h3>
-                <p>NASA's ascent trajectory graphic for readers who want a mission map in wallpaper form.</p>
-                <div class="card-meta">
-                  <span>1800 x 1227</span>
-                  <span>NASA</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/ascent-graphic-full.webp" download="artemis-ii-ascent-graphic.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-Artemis%20II%20Mission%20Trajectory%20Final" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="wallpaper-card" data-tags="poster">
-              <div class="card-media portrait">
-                <img src="assets/images/wallpapers/thumbs/crew-poster-thumb.webp" alt="Official Artemis II crew poster." width="621" height="960" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Phone</span>
-                  <span>Poster</span>
-                </div>
-                <h3>Artemis II Crew Poster</h3>
-                <p>Official mission crew poster art with a portrait-oriented editorial feel.</p>
-                <div class="card-meta">
-                  <span>1165 x 1800</span>
-                  <span>NASA</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/crew-poster-full.webp" download="artemis-ii-crew-poster.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-ArtemisIICrewPoster" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="wallpaper-card" data-tags="poster">
-              <div class="card-media portrait">
-                <img src="assets/images/wallpapers/thumbs/mission-poster-thumb.webp" alt="Original Artemis II mission poster." width="621" height="960" loading="lazy" />
-              </div>
-              <div class="wallpaper-body">
-                <div class="card-tags">
-                  <span>Phone</span>
-                  <span>Poster</span>
-                </div>
-                <h3>Artemis II Poster - 11 x 17</h3>
-                <p>The original Artemis II poster rendered for tall mobile and tablet displays.</p>
-                <div class="card-meta">
-                  <span>1165 x 1800</span>
-                  <span>NASA</span>
-                </div>
-                <div class="card-actions">
-                  <a href="assets/images/wallpapers/mission-poster-full.webp" download="artemis-ii-mission-poster.webp">Download</a>
-                  <a href="https://images.nasa.gov/details-ArtemisII_Poster_11x17_300ppi_CMYK" target="_blank" rel="noreferrer noopener">NASA source</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="snapshot section">
-          <div class="section-heading">
-            <p class="eyebrow">Mission Snapshot</p>
-            <h2>A quick orientation before you pick a wallpaper.</h2>
-          </div>
-          <div class="snapshot-grid">
-            <article class="snapshot-panel">
-              <h3>Mission timeline</h3>
-              <ul class="timeline">
-                <li><strong>April 1, 2026:</strong> Artemis II launches from Launch Complex 39B at Kennedy Space Center.</li>
-                <li><strong>April 2-3:</strong> Orion sends back Earth views during its crewed lunar flyby mission.</li>
-                <li><strong>April 10, 2026:</strong> Orion returns and splashes down in the Pacific near San Diego.</li>
-              </ul>
-            </article>
-            <article class="snapshot-panel">
-              <h3>Crew manifest</h3>
-              <ul class="crew-list">
-                <li>Reid Wiseman, commander</li>
-                <li>Victor Glover, pilot</li>
-                <li>Christina Koch, mission specialist</li>
-                <li>Jeremy Hansen, mission specialist</li>
-              </ul>
-            </article>
-            <article class="snapshot-panel">
-              <h3>Archive posture</h3>
+          <div class="card-grid">
+            <article class="info-card">
+              <h3>1. NVLink is the fast scale-up path</h3>
               <p>
-                This site packages NASA imagery for fast wallpaper browsing, but it does not present itself as NASA, does not use NASA brand marks as site identity, and links back to original NASA source records on every asset card.
+                NVIDIA's March 6, 2023 explainer describes NVLink as a high-speed interconnect for GPUs and CPUs, with fourth-generation
+                bandwidth reaching 900 GB/s. The point is not generic I/O. The point is moving model state and collective traffic fast
+                enough that multiple accelerators can behave like one coherent system.
+              </p>
+            </article>
+            <article class="info-card">
+              <h3>2. NVSwitch makes the fabric bigger</h3>
+              <p>
+                Direct neighbor links are not enough once you scale beyond a small local island. NVIDIA's current NVLink page frames
+                NVSwitch as the element that keeps the fabric all-to-all, letting larger systems retain full-bandwidth GPU-to-GPU paths.
+              </p>
+            </article>
+            <article class="info-card">
+              <h3>3. NVLink-C2C shrinks the idea down to package level</h3>
+              <p>
+                Blackwell-era systems also use NVLink chip-to-chip inside superchips. NVIDIA's March 18, 2024 Blackwell announcement
+                says the GB200 Grace Blackwell Superchip connects two B200 GPUs to Grace with a 900 GB/s ultra-low-power NVLink C2C
+                interconnect.
+              </p>
+            </article>
+          </div>
+          <div class="contrast-grid">
+            <article class="contrast-card">
+              <p class="eyebrow">Why not stop at PCIe?</p>
+              <h3>Bandwidth is only part of the story.</h3>
+              <p>
+                PCIe is the general-purpose server interconnect. NVLink exists because tightly coupled AI and HPC workloads keep hitting
+                communication walls before they hit raw compute walls.
+              </p>
+            </article>
+            <article class="contrast-card accent">
+              <p class="eyebrow">Official delta</p>
+              <h3>Fourth-generation NVLink was already more than 7x PCIe Gen 5.</h3>
+              <p>
+                That comparison comes directly from NVIDIA's March 6, 2023 blog post. Later generations push the gap wider as models
+                become more communication-heavy.
               </p>
             </article>
           </div>
         </section>
 
-        <section class="faq-credits section">
-          <div class="faq-block" id="faq">
-            <div class="section-heading">
-              <p class="eyebrow">FAQ</p>
-              <h2>Answers for the obvious questions before you download.</h2>
-            </div>
-            <div class="faq-list">
-              <details open>
-                <summary>What is Artemis II?</summary>
-                <p>
-                  Artemis II is NASA's first crewed Artemis mission. NASA launched it on April 1, 2026 as an approximately 10-day test flight around the Moon and back.
-                </p>
-              </details>
-              <details>
-                <summary>Is this an official NASA wallpaper site?</summary>
-                <p>
-                  No. It is an independent editorial collection built around publicly released NASA Artemis II imagery. The site credits NASA sources and avoids implying endorsement.
-                </p>
-              </details>
-              <details>
-                <summary>Are these wallpapers better for desktop or phone?</summary>
-                <p>
-                  Both. The set includes desktop landscapes, one ultrawide option, and several portrait-oriented launch, recovery, and poster picks for phones and tablets.
-                </p>
-              </details>
-              <details>
-                <summary>Where do the images come from?</summary>
-                <p>
-                  From the NASA image archive, NASA mission graphics, and official mission coverage pages. Each wallpaper card includes a direct link to the corresponding NASA source record.
-                </p>
-              </details>
-            </div>
+        <section class="section timeline-section" id="timeline">
+          <div class="section-heading">
+            <p class="eyebrow">Timeline</p>
+            <h2>The official generation curve is steep.</h2>
+            <p>
+              The important thing is not memorizing every product codename. It is seeing how quickly interconnect bandwidth has moved
+              from hundreds of gigabytes per second to multiple terabytes per second per GPU.
+            </p>
+          </div>
+          <div class="timeline-layout">
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <div class="timeline-year">2016 era</div>
+                <div class="timeline-copy">
+                  <h3>Pascal / P100</h3>
+                  <p>NVIDIA says NVLink was first introduced as a GPU interconnect with the NVIDIA P100 GPU.</p>
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-copy">
+                  <h3>Ampere / A100</h3>
+                  <p>Third-generation NVLink doubled max bandwidth per GPU to 600 GB/s, according to NVIDIA's 2023 explainer.</p>
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-year">2022-2023</div>
+                <div class="timeline-copy">
+                  <h3>Hopper / H100</h3>
+                  <p>Fourth-generation NVLink reached 900 GB/s per GPU and became the baseline reference for modern DGX and HGX systems.</p>
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-year">March 18, 2024</div>
+                <div class="timeline-copy">
+                  <h3>Blackwell / fifth generation</h3>
+                  <p>NVIDIA's Blackwell launch says fifth-generation NVLink delivers 1.8 TB/s per GPU and supports communication among up to 576 GPUs.</p>
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-year">April 2026 official page</div>
+                <div class="timeline-copy">
+                  <h3>Rubin / sixth generation</h3>
+                  <p>NVIDIA's current NVLink page describes sixth-generation NVLink at 3.6 TB/s per GPU, with a 72-GPU NVL72 system reaching 260 TB/s total aggregate bandwidth.</p>
+                </div>
+              </li>
+            </ol>
+
+            <aside class="bandwidth-panel card">
+              <div class="panel-head">
+                <p class="eyebrow">Bandwidth by generation</p>
+                <h3>Per-GPU official figures</h3>
+              </div>
+              <div class="bandwidth-rows" aria-label="NVLink bandwidth chart">
+                <div class="bandwidth-row">
+                  <div class="bandwidth-label">
+                    <strong>A100</strong>
+                    <span>Third gen</span>
+                  </div>
+                  <div class="bandwidth-bar">
+                    <span style="width: 16.6%"></span>
+                  </div>
+                  <strong class="bandwidth-value">600 GB/s</strong>
+                </div>
+                <div class="bandwidth-row">
+                  <div class="bandwidth-label">
+                    <strong>H100</strong>
+                    <span>Fourth gen</span>
+                  </div>
+                  <div class="bandwidth-bar">
+                    <span style="width: 25%"></span>
+                  </div>
+                  <strong class="bandwidth-value">900 GB/s</strong>
+                </div>
+                <div class="bandwidth-row">
+                  <div class="bandwidth-label">
+                    <strong>Blackwell</strong>
+                    <span>Fifth gen</span>
+                  </div>
+                  <div class="bandwidth-bar">
+                    <span style="width: 50%"></span>
+                  </div>
+                  <strong class="bandwidth-value">1.8 TB/s</strong>
+                </div>
+                <div class="bandwidth-row">
+                  <div class="bandwidth-label">
+                    <strong>Rubin</strong>
+                    <span>Sixth gen</span>
+                  </div>
+                  <div class="bandwidth-bar">
+                    <span style="width: 100%"></span>
+                  </div>
+                  <strong class="bandwidth-value">3.6 TB/s</strong>
+                </div>
+              </div>
+              <p class="panel-note">All values above come from official NVIDIA pages or official NVIDIA blog posts listed in the sources section.</p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section" id="workloads">
+          <div class="section-heading">
+            <p class="eyebrow">Use cases</p>
+            <h2>NVLink matters most when communication is on the critical path.</h2>
+            <p>
+              If GPUs work independently, PCIe can be fine. If every step needs fast exchanges of activations, gradients, KV cache, or
+              model shards, interconnect quality starts deciding the result.
+            </p>
+          </div>
+          <div class="card-grid use-grid">
+            <article class="info-card">
+              <h3>Training and model parallelism</h3>
+              <p>Large training jobs need fast all-reduce and high-volume traffic between accelerators. That is why NVIDIA pairs NVLink with NVSwitch in DGX, HGX, and NVL systems.</p>
+            </article>
+            <article class="info-card">
+              <h3>Rack-scale inference</h3>
+              <p>NVIDIA's Rubin page explicitly ties sixth-generation NVLink to reasoning workloads and mixture-of-experts patterns, where tokens and experts can force heavy all-to-all communication.</p>
+            </article>
+            <article class="info-card">
+              <h3>Superchips and memory-adjacent traffic</h3>
+              <p>NVLink-C2C extends the same logic inside package-level systems such as Grace Hopper and Grace Blackwell, where CPU and GPU need very high local bandwidth.</p>
+            </article>
+            <article class="info-card caution">
+              <h3>When PCIe is enough</h3>
+              <p>Single-GPU inference, embarrassingly parallel batches, small fine-tunes, and lightly coupled serving stacks often do not need the cost or system design complexity of NVLink.</p>
+            </article>
           </div>
 
-          <div class="credits-block" id="credits">
-            <div class="section-heading">
-              <p class="eyebrow">Credits & Usage</p>
-              <h2>Source trail and the non-official boundary.</h2>
+          <div class="matrix card">
+            <div class="matrix-head">
+              <p class="eyebrow">Practical reading guide</p>
+              <h3>How to interpret vendor claims</h3>
             </div>
-            <div class="credits-panel">
-              <p class="credits-lead">
-                NASA says factual use of NASA content that does not imply endorsement can be used without explicit permission, and NASA should be acknowledged as the source. This archive follows that boundary.
-              </p>
-              <ul class="credits-links">
-                <li><a href="https://www.nasa.gov/artemis-ii/" target="_blank" rel="noreferrer noopener">NASA Artemis II mission page</a></li>
-                <li><a href="https://www.nasa.gov/artemis-ii-press-kit/" target="_blank" rel="noreferrer noopener">NASA Artemis II press kit</a></li>
-                <li><a href="https://images.nasa.gov/search?q=Artemis%20II&media_type=image" target="_blank" rel="noreferrer noopener">NASA image archive query for Artemis II</a></li>
-                <li><a href="https://www.nasa.gov/multimedia/guidelines/index.html" target="_blank" rel="noreferrer noopener">NASA images and media guidance</a></li>
-              </ul>
-              <p class="credits-disclaimer">
-                Disclaimer: this is not an official NASA site, not a NASA partner property, and not a page endorsed by NASA. NASA insignia, logotypes, and identifiers are not used as site branding.
-              </p>
+            <div class="matrix-table" role="table" aria-label="Practical guidance table">
+              <div class="matrix-row matrix-header" role="row">
+                <span role="columnheader">If the workload...</span>
+                <span role="columnheader">Then NVLink usually helps when...</span>
+                <span role="columnheader">And PCIe is often enough when...</span>
+              </div>
+              <div class="matrix-row" role="row">
+                <span role="cell">moves state between GPUs every step</span>
+                <span role="cell">collective communication becomes the bottleneck</span>
+                <span role="cell">communication stays low relative to compute</span>
+              </div>
+              <div class="matrix-row" role="row">
+                <span role="cell">uses many experts or model shards</span>
+                <span role="cell">tokens trigger frequent all-to-all exchanges</span>
+                <span role="cell">each accelerator mostly runs its own request</span>
+              </div>
+              <div class="matrix-row" role="row">
+                <span role="cell">depends on a CPU-GPU superchip path</span>
+                <span role="cell">the design uses NVLink-C2C or Grace-class systems</span>
+                <span role="cell">host transfers are not dominant in the pipeline</span>
+              </div>
             </div>
+          </div>
+        </section>
+
+        <section class="section" id="faq">
+          <div class="section-heading">
+            <p class="eyebrow">FAQ</p>
+            <h2>The fast answers people usually need first.</h2>
+          </div>
+          <div class="faq-list">
+            <details open>
+              <summary>What is NVLink in one sentence?</summary>
+              <p>It is NVIDIA's high-bandwidth scale-up interconnect for GPUs and CPUs in accelerated systems.</p>
+            </details>
+            <details>
+              <summary>Is NVLink the same thing as NVSwitch?</summary>
+              <p>No. NVLink is the link technology. NVSwitch is the switch fabric that expands those links into a larger all-to-all domain.</p>
+            </details>
+            <details>
+              <summary>How is NVLink different from PCIe?</summary>
+              <p>PCIe is the default server interconnect. NVLink is specialized for multi-GPU communication and, according to NVIDIA's own explainer, fourth-generation NVLink exceeded PCIe Gen 5 bandwidth by more than 7x.</p>
+            </details>
+            <details>
+              <summary>What is the current official top-end NVLink number?</summary>
+              <p>As of April 26, 2026, NVIDIA's official NVLink page lists sixth-generation NVLink at 3.6 TB/s of bandwidth per GPU for Rubin.</p>
+            </details>
+            <details>
+              <summary>Does NVLink automatically make two GPUs act like one?</summary>
+              <p>Not by itself. It gives software a much better communication path. The workload and system software still need to know how to use multiple GPUs effectively.</p>
+            </details>
+            <details>
+              <summary>Is NVLink mainly for gaming?</summary>
+              <p>No. The current product conversation is centered on AI, HPC, DGX, HGX, rack-scale inference, and superchip designs rather than consumer gaming.</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="section" id="sources">
+          <div class="section-heading">
+            <p class="eyebrow">Primary sources</p>
+            <h2>The site is intentionally narrow: official NVIDIA sources for specs and dates.</h2>
+            <p>This page avoids rumor-roundup content. The goal is to make official information readable, not to invent another hype layer.</p>
+          </div>
+          <div class="sources-grid">
+            <article class="source-card">
+              <p class="source-kicker">Current specs</p>
+              <h3><a href="https://www.nvidia.com/en-us/data-center/nvlink/" target="_blank" rel="noreferrer noopener">NVIDIA NVLink and NVLink Switch</a></h3>
+              <p>Used for sixth-generation figures, NVL72 total bandwidth, and the current official spec table.</p>
+            </article>
+            <article class="source-card">
+              <p class="source-kicker">Background explainer</p>
+              <h3><a href="https://blogs.nvidia.com/blog/what-is-nvidia-nvlink/" target="_blank" rel="noreferrer noopener">What Is NVLink? | NVIDIA Blog</a></h3>
+              <p>Used for the broad definition, third-generation A100 figure, fourth-generation H100 figure, and the PCIe comparison.</p>
+            </article>
+            <article class="source-card">
+              <p class="source-kicker">Blackwell launch</p>
+              <h3><a href="https://nvidianews.nvidia.com/news/nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing" target="_blank" rel="noreferrer noopener">NVIDIA Blackwell Platform Arrives to Power a New Era of Computing</a></h3>
+              <p>Used for fifth-generation NVLink bandwidth, the 576-GPU claim, and the 900 GB/s NVLink-C2C statement.</p>
+            </article>
           </div>
         </section>
       </main>
 
       <footer class="footer">
-        <p>Artemis II Wallpaper is an independent editorial archive for publicly released NASA mission imagery.</p>
-        <p><span id="current-year"></span> • Built for fast local downloads, responsive browsing, and source attribution.</p>
+        <p>Independent editorial explainer. NVIDIA and NVLink are trademarks of NVIDIA. This page summarizes public official materials for educational and research purposes.</p>
       </footer>
     </div>
-
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
+

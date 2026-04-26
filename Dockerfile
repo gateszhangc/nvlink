@@ -18,3 +18,4 @@ COPY styles.css ./styles.css
 EXPOSE 3000
 
 CMD ["node", "server.js"]
+

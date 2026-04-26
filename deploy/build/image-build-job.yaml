@@ -1,0 +1,66 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{JOB_NAME}}
+  namespace: {{BUILD_NAMESPACE}}
+  labels:
+    app.kubernetes.io/name: {{APP_NAME}}
+    app.kubernetes.io/component: image-build
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 1800
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{APP_NAME}}
+        app.kubernetes.io/component: image-build
+    spec:
+      restartPolicy: Never
+      initContainers:
+        - name: checkout-source
+          image: alpine/git:2.47.2
+          env:
+            - name: GIT_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{GIT_SECRET_NAME}}
+                  key: token
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              set -eu
+              git clone --depth 1 --branch "{{GIT_REF}}" "https://x-access-token:${GIT_AUTH_TOKEN}@github.com/{{GITHUB_REPOSITORY}}.git" /workspace/source
+              cd /workspace/source
+              git fetch --depth 1 origin "{{GIT_SHA}}"
+              git checkout "{{GIT_SHA}}"
+          volumeMounts:
+            - name: workspace
+              mountPath: /workspace
+      containers:
+        - name: kaniko
+          image: gcr.io/kaniko-project/executor:v1.23.2-debug
+          args:
+            - --context=dir:///workspace/source
+            - --dockerfile=/workspace/source/{{DOCKERFILE_PATH}}
+            - --destination={{IMAGE_REPOSITORY}}:{{IMAGE_TAG}}
+            - --cache=true
+            - --cache-repo={{IMAGE_REPOSITORY}}-cache
+            - --snapshot-mode=redo
+            - --use-new-run
+          volumeMounts:
+            - name: workspace
+              mountPath: /workspace
+            - name: docker-config
+              mountPath: /kaniko/.docker
+      volumes:
+        - name: workspace
+          emptyDir: {}
+        - name: docker-config
+          secret:
+            secretName: {{REGISTRY_SECRET_NAME}}
+            items:
+              - key: .dockerconfigjson
+                path: config.json
+

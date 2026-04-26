@@ -7,92 +7,118 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: artemis-2-wallpaper-release
+  group: nvlink-release
   cancel-in-progress: true
 
 env:
-  IMAGE_NAME: registry.144.91.77.245.sslip.io/dokploy-fleet-artemis-2-wallpaper-artemis-2-wallpaper
-  FLEET_REPO: gateszhangc/k8s-fleet
-  FLEET_TENANT_PATH: tenants/artemis-2-wallpaper/20-artemis-2-wallpaper-deployment.yaml
+  APP_NAME: nvlink
+  APP_NAMESPACE: nvlink
+  BUILD_NAMESPACE: nvlink
+  PRIMARY_DOMAIN: nvlink.lol
+  IMAGE_REPOSITORY: registry.144.91.77.245.sslip.io/nvlink
+  KUSTOMIZATION_FILE: deploy/k8s/overlays/prod/kustomization.yaml
+  BUILD_JOB_TEMPLATE: deploy/build/image-build-job.yaml
+  REGISTRY_SERVER: registry.144.91.77.245.sslip.io
 
 jobs:
-  build-and-push:
+  build-release-and-sync:
+    if: github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
-    outputs:
-      image_tag: ${{ steps.meta.outputs.image_tag }}
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Derive image tag
+      - name: Derive release metadata
         id: meta
-        run: echo "image_tag=${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Log in to registry
-        uses: docker/login-action@v3
-        with:
-          registry: registry.144.91.77.245.sslip.io
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
-
-      - name: Build and push image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.image_tag }}
-
-  update-fleet:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out fleet repo
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ env.FLEET_REPO }}
-          token: ${{ secrets.FLEET_REPO_PAT }}
-          path: k8s-fleet
-
-      - name: Update deployment image tag
-        env:
-          IMAGE_TAG: ${{ needs.build-and-push.outputs.image_tag }}
         run: |
-          python3 - <<'PY'
-          import os
-          import re
-          from pathlib import Path
+          echo "image_tag=${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+          echo "build_job_name=${APP_NAME}-image-build-${GITHUB_RUN_ID}" >> "$GITHUB_OUTPUT"
 
-          path = Path("k8s-fleet") / os.environ["FLEET_TENANT_PATH"]
-          content = path.read_text()
-          updated, count = re.subn(
-              r"(^\s*image:\s*registry\.144\.91\.77\.245\.sslip\.io/dokploy-fleet-artemis-2-wallpaper-artemis-2-wallpaper:).*$",
-              rf"\1{os.environ['IMAGE_TAG']}",
-              content,
-              count=1,
-              flags=re.MULTILINE,
-          )
-          if count != 1:
-              raise SystemExit("Expected exactly one image line to update in the fleet deployment manifest.")
-          path.write_text(updated)
-          PY
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: v1.31.0
 
-      - name: Commit fleet update
+      - name: Configure kubeconfig
         env:
-          IMAGE_TAG: ${{ needs.build-and-push.outputs.image_tag }}
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         run: |
-          cd k8s-fleet
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$FLEET_TENANT_PATH"
-          if git diff --cached --quiet; then
+          test -n "$KUBE_CONFIG_DATA"
+          mkdir -p "$HOME/.kube"
+          printf '%s' "$KUBE_CONFIG_DATA" | base64 --decode > "$HOME/.kube/config"
+          chmod 600 "$HOME/.kube/config"
+
+      - name: Create build secrets
+        env:
+          REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+          REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+          GIT_AUTH_TOKEN: ${{ secrets.K8S_BUILD_GIT_TOKEN || github.token }}
+        run: |
+          test -n "$REGISTRY_USERNAME"
+          test -n "$REGISTRY_PASSWORD"
+          test -n "$GIT_AUTH_TOKEN"
+          kubectl create namespace "$BUILD_NAMESPACE" --dry-run=client -o yaml | kubectl apply -f -
+          kubectl -n "$BUILD_NAMESPACE" create secret docker-registry "${APP_NAME}-registry-auth" \
+            --docker-server="$REGISTRY_SERVER" \
+            --docker-username="$REGISTRY_USERNAME" \
+            --docker-password="$REGISTRY_PASSWORD" \
+            --dry-run=client -o yaml | kubectl apply -f -
+          kubectl -n "$BUILD_NAMESPACE" create secret generic "${APP_NAME}-git-auth" \
+            --from-literal=token="$GIT_AUTH_TOKEN" \
+            --dry-run=client -o yaml | kubectl apply -f -
+
+      - name: Render image build job
+        run: |
+          python3 scripts/render_k8s_build_job.py \
+            --template "$BUILD_JOB_TEMPLATE" \
+            --output /tmp/image-build-job.yaml \
+            --job-name "${{ steps.meta.outputs.build_job_name }}" \
+            --namespace "$BUILD_NAMESPACE" \
+            --app-name "$APP_NAME" \
+            --git-secret-name "${APP_NAME}-git-auth" \
+            --registry-secret-name "${APP_NAME}-registry-auth" \
+            --github-repository "${GITHUB_REPOSITORY}" \
+            --git-ref "${GITHUB_REF_NAME}" \
+            --git-sha "${GITHUB_SHA}" \
+            --image-repository "$IMAGE_REPOSITORY" \
+            --image-tag "${{ steps.meta.outputs.image_tag }}" \
+            --dockerfile-path "Dockerfile"
+          cat /tmp/image-build-job.yaml
+
+      - name: Run K8s build job
+        run: |
+          kubectl -n "$BUILD_NAMESPACE" delete job "${{ steps.meta.outputs.build_job_name }}" --ignore-not-found
+          kubectl apply -f /tmp/image-build-job.yaml
+          kubectl -n "$BUILD_NAMESPACE" wait --for=condition=Complete --timeout=30m "job/${{ steps.meta.outputs.build_job_name }}"
+          kubectl -n "$BUILD_NAMESPACE" logs "job/${{ steps.meta.outputs.build_job_name }}"
+
+      - name: Update kustomize image tag
+        run: |
+          python3 scripts/sync_kustomize_image_tag.py \
+            "$KUSTOMIZATION_FILE" \
+            "$APP_NAME" \
+            "${{ steps.meta.outputs.image_tag }}"
+
+      - name: Commit and push GitOps tag
+        env:
+          IMAGE_TAG: ${{ steps.meta.outputs.image_tag }}
+        run: |
+          if git diff --quiet -- "$KUSTOMIZATION_FILE"; then
             exit 0
           fi
-          git commit -m "chore: release artemis-2-wallpaper ${IMAGE_TAG}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$KUSTOMIZATION_FILE"
+          git commit -m "chore: release nvlink ${IMAGE_TAG} [skip ci]"
           git push origin HEAD:main
+
+      - name: Clean up build job
+        if: always()
+        run: |
+          kubectl -n "$BUILD_NAMESPACE" delete job "${{ steps.meta.outputs.build_job_name }}" --ignore-not-found
+

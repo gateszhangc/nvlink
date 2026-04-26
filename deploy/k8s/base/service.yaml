@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nvlink-web
+spec:
+  selector:
+    app.kubernetes.io/name: nvlink
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+

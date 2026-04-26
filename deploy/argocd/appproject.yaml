@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: nvlink
+  namespace: argocd
+spec:
+  description: nvlink.lol static site managed from the application repository
+  sourceRepos:
+    - https://github.com/gateszhangc/nvlink.git
+  destinations:
+    - namespace: nvlink
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
